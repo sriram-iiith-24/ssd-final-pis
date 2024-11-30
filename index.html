@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Publication Analysis Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Academic Publication Analysis Dashboard</h1>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="authorSearch" placeholder="Enter author name...">
+            <button id="searchButton">Search</button>
+        </div>
+
+        <div id="error" class="error"></div>
+
+        <div id="authorSelectionPanel" class="selection-panel">
+            <div class="panel-header">
+                <h2>Select Matching Authors</h2>
+                <input type="text" 
+                       id="affiliationFilter" 
+                       placeholder="Filter by affiliation...">
+            </div>
+
+            <div id="authorsList" class="authors-list"></div>
+
+            <div class="panel-footer">
+                <button id="analyzeSelectedButton" disabled>
+                    Analyze Selected (<span id="selectedCount">0</span>)
+                </button>
+            </div>
+        </div>
+
+        <div id="analysisResults" class="analysis-results">
+            <div id="authorProfile" class="author-profile"></div>
+            
+            <div id="statsContainer" class="stats-container"></div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Publication & Citation Trends</h3>
+                    <canvas id="yearlyTrendChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Domain Impact</h3>
+                    <canvas id="domainImpactChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Citation Network</h3>
+                    <canvas id="citationNetworkChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Collaboration Network</h3>
+                    <canvas id="collaborationNetworkChart"></canvas>
+                </div>
+            </div>
+
+            <!-- <div class="citation-impact-section">
+                <h3>Secondary Citation Impact</h3>
+                <div class="chart-card full-width">
+                    <canvas id="secondLevelCitationChart"></canvas>
+                </div>
+                <div id="citationBreakdown" class="citation-breakdown"></div>
+            </div> -->
+
+            <div class="domain-distribution">
+                <h3>Research Domain Distribution</h3>
+                <div id="domainBreakdown" class="domain-breakdown"></div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <div>Processing Data...</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="config.js"></script>
+    <script src="analyzer.js"></script>
+    <script src="charts.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
